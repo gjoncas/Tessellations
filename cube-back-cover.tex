@@ -1,0 +1,42 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{offwhite}{RGB}{249,249,249}
+\definecolor{myred}{RGB}{194,25,27}			%dark red
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+	\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+	
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\def\x{1.25} %horizontal width of cube
+	\def\y{0.75} %vertical height of cube
+	\def\d{{sqrt(0.25*\x*\x + 0.25*\y*\y)}}	%length of a side (euclidean distance)
+	
+	\foreach \i in {0,...,17}{ %length
+		\foreach \j in {0,...,13}{ %height
+	\fill[violet!40!white] (\x*\i,1.75*\x*\j)--++(0.5*\x,0.5*\y)--++(0.5*\x,-0.5*\y)--++(-0.5*\x,-0.5*\y)--cycle;
+	\fill[violet!60!black] (\x*\i,1.75*\x*\j)--++(0,-\d)--++(0.5*\x,-0.5*\y) --++(0,\d)--cycle;
+	\fill[violet!99!black] (\x*\i+0.5*\x,1.75*\x*\j-0.5*\y)--++(0,-\d) --++(0.5*\x,0.5*\y)--++(0,\d)--cycle;
+			
+	\fill[violet!40!white] (-0.5*\x+\x*\i,{1.75*\x*\j+2*sqrt(0.25*\x*\x + 0.25*\y*\y)*\y}) --++(0.5*\x,0.5*\y)--++(0.5*\x,-0.5*\y)--++(-0.5*\x,-0.5*\y)--cycle;
+	\fill[violet!60!black] (-0.5*\x+\x*\i,{1.75*\x*\j+2*sqrt(0.25*\x*\x + 0.25*\y*\y)*\y}) --++(0,-\d)--++(0.5*\x,-0.5*\y) --++(0,\d)--cycle;
+	\fill[violet!99!black] (-0.5*\x+\x*\i+0.5*\x,{1.75*\x*\j-0.5*\y+2*sqrt(0.25*\x*\x + 0.25*\y*\y)*\y}) --++(0,-\d)--++(0.5*\x,0.5*\y)--++(0,\d)--cycle;
+		} %end j loop
+	} %end i loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+
+\end{document}

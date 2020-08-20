@@ -1,0 +1,45 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},lime,ultra thick]
+	\fill[green!70!black] (0,0) rectangle (\paperwidth,\paperheight);
+	\def\h{2.48}		%vertical height = \h		%original: 2.65
+	\def\w{(46/53)*\h}	%horizontal width = 2*\w
+	
+	\foreach \i in {0,...,5}{
+		\foreach \j in {0,...,11}{
+	\draw[ultra thick] ({2*\w*\i},{\h*\j})--({2*\w*\i+\w},{\h*\j-0.58*\w})--({2*\w*\i+2*\w},{\h*\j})--({2*\w*\i+\w},{\h*\j+0.58*\w})--cycle;
+	\draw ({2*\w*\i},{\h*\j})--({2*\w*\i+0.67*\w},{\h*\j})--({2*\w*\i+\w},{\h*\j+0.58*\w})--({2*\w*\i+\w},{\h*\j-0.58*\w})--({2*\w*\i+0.67*\w},{\h*\j});
+	\draw ({2*\w*\i+2*\w},{\h*\j})--({2*\w*\i+1.33*\w},{\h*\j})--({2*\w*\i+\w},{\h*\j+0.58*\w})--({2*\w*\i+\w},{\h*\j-0.58*\w})--({2*\w*\i+1.33*\w},{\h*\j});
+	%
+	\fill ({2*\w*\i},{\h*\j}) circle ({3.5pt});
+	\fill ({2*\w*\i+2*\w},{\h*\j}) circle ({3.5pt});
+	\fill ({2*\w*\i+\w},{\h*\j-0.58*\w}) circle ({3.5pt});		
+	\fill ({2*\w*\i+\w},{\h*\j+0.58*\w}) circle ({3.5pt});
+	%
+	\draw ({-\w+2*\w*\i},{0.5*\h+\h*\j})--({-\w+2*\w*\i+0.67*\w},{0.5*\h+\h*\j})--({-\w+2*\w*\i+\w},{0.5*\h+\h*\j+0.58*\w})--({-\w+2*\w*\i+\w},{0.5*\h+\h*\j-0.58*\w})--({-\w+2*\w*\i+0.67*\w},{0.5*\h+\h*\j});
+	\draw ({-\w+2*\w*\i+2*\w},{0.5*\h+\h*\j})--({-\w+2*\w*\i+1.33*\w},{0.5*\h+\h*\j})--({-\w+2*\w*\i+\w},{0.5*\h+\h*\j+0.58*\w})--({-\w+2*\w*\i+\w},{0.5*\h+\h*\j-0.58*\w})--({-\w+2*\w*\i+1.33*\w},{0.5*\h+\h*\j});
+		} %end j loop
+	} %end i loop
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

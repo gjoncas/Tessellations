@@ -1,0 +1,56 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{myblue}{RGB}{85,118,185}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[blue!25!gray] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[align=left,above right] at (-0.2-\x,-0.2) {\includegraphics[width=0.7\linewidth]{fish-tiling}};
+	
+	\foreach \j in {0,...,9}{
+	\foreach \i in {-1,...,4}{
+	
+	%BOTTOM ROW -- BLUE FISHIES
+	\fill[myblue] (6.5*\i,2.9*\j)--(6.5*\i+1.295,2.9*\j+1.06)--(6.5*\i+2.77,2.9*\j+0.36)--(6.5*\i+3.195,2.9*\j+0.71)--(6.5*\i+4.12,2.9*\j+0.71)--(6.5*\i+3.25,2.9*\j)--(6.5*\i+4.14,2.9*\j-0.75)--(6.5*\i+3.22,2.9*\j-0.75)--(6.5*\i+2.77,2.9*\j-0.38)--(6.5*\i+1.295,2.9*\j-1.08)--cycle;
+	\fill[black!70!gray] (6.5*\i+0.74,2.9*\j+0.1) circle (0.2cm);
+	\fill[cyan!60!blue] (6.5*\i+1.29,2.9*\j-0.49)--(6.5*\i+1.29,2.9*\j+0.47)--(6.5*\i+1.825,2.9*\j-0.015)--cycle;
+	
+	\fill[cyan!60!blue] (6.5*\i+3.25,2.9*\j)--(6.5*\i+3.25+1.295,2.9*\j+1.06)--(6.5*\i+3.25+2.77,2.9*\j+0.36)--(6.5*\i+3.25+3.195,2.9*\j+0.71)--(6.5*\i+3.25+4.12,2.9*\j+0.71)--(6.5*\i+3.25+3.25,2.9*\j)--(6.5*\i+3.25+4.14,2.9*\j-0.75)--(6.5*\i+3.25+3.22,2.9*\j-0.75)--(6.5*\i+3.25+2.77,2.9*\j-0.38)--(6.5*\i+3.25+1.295,2.9*\j-1.08)--cycle;
+	\fill[black!70!gray] (6.5*\i+3.25+0.74,2.9*\j+0.1) circle (0.2cm);
+	\fill[myblue] (6.5*\i+3.25+1.29,2.9*\j-0.49)--(6.5*\i+3.25+1.29,2.9*\j+0.47)--(6.5*\i+3.25+1.825,2.9*\j-0.015)--cycle;
+	
+	%TOP ROW -- VIOLET FISHIES
+	\fill[purple!70!cyan] (6.5*\i-2.43,2.9*\j+1.45)--(6.5*\i-2.43-1.295,2.9*\j+1.45+1.06)--(6.5*\i-2.43-2.77,2.9*\j+1.45+0.36)--(6.5*\i-2.43-3.195,2.9*\j+1.45+0.71)--(6.5*\i-2.43-4.12,2.9*\j+1.45+0.71)--(6.5*\i-2.43-3.25,2.9*\j+1.45)--(6.5*\i-2.43-4.14,2.9*\j+1.45-0.75)--(6.5*\i-2.43-3.22,2.9*\j+1.45-0.75)--(6.5*\i-2.43-2.77,2.9*\j+1.45-0.38)--(6.5*\i-2.43-1.295,2.9*\j+1.45-1.08)--cycle;
+	\fill[black!70!gray] (6.5*\i-2.43-0.74,2.9*\j+1.45+0.1) circle (0.2cm);
+	\fill[violet!70!cyan] (6.5*\i-2.43-1.29,2.9*\j+1.45-0.49)--(6.5*\i-2.43-1.29,2.9*\j+1.45+0.47)--(6.5*\i-2.43-1.825,2.9*\j+1.45-0.015)--cycle;
+	
+	\fill[violet!70!cyan] (6.5*\i+3.25-2.43,2.9*\j+1.45)--(6.5*\i+3.25-2.43-1.295,2.9*\j+1.45+1.06)--(6.5*\i+3.25-2.43-2.77,2.9*\j+1.45+0.36)--(6.5*\i+3.25-2.43-3.195,2.9*\j+1.45+0.71)--(6.5*\i+3.25-2.43-4.12,2.9*\j+1.45+0.71)--(6.5*\i+3.25-2.43-3.25,2.9*\j+1.45)--(6.5*\i+3.25-2.43-4.14,2.9*\j+1.45-0.75)--(6.5*\i+3.25-2.43-3.22,2.9*\j+1.45-0.75)--(6.5*\i+3.25-2.43-2.77,2.9*\j+1.45-0.38)--(6.5*\i+3.25-2.43-1.295,2.9*\j+1.45-1.08)--cycle;
+	\fill[black!70!gray] (6.5*\i+3.25-2.43-0.74,2.9*\j+1.45+0.1) circle (0.2cm);
+	\fill[purple!70!cyan] (6.5*\i+3.25-2.43-1.29,2.9*\j+1.45-0.49)--(6.5*\i+3.25-2.43-1.29,2.9*\j+1.45+0.47)--(6.5*\i+3.25-2.43-1.825,2.9*\j+1.45-0.015)--cycle;
+	} % end i loop
+	} %end j loop
+	
+	%\draw[help lines] (0,0) grid (8,5);
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

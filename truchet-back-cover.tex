@@ -1,0 +1,39 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{offwhite}{RGB}{249,249,249}
+\definecolor{myred}{RGB}{194,25,27}			%dark red
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+	\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+	
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},myred]
+	\def\w{20}	%width of grid
+	\def\h{26}	%height of grid
+	\def\s{\paperwidth/\w}	%length of square
+	\fill[myred!30!white] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \i in {1,...,\w}{
+		\foreach \j in {1,...,\h}{
+			\pgfmathparse{random(1,4)} %random number from 1 to 4, uniformly distributed
+			\fill[rotate around={\pgfmathresult*90:({(\i-0.5)*\s},{(\j-0.5)*\s})}] %rotate around center of square
+			({(\i-0.5)*\s},{(\j-0.5)*\s})--(\i*\s,\j*\s)--({(\i-1)*\s},\j*\s)--({(\i-1)*\s},{(\j-1)*\s})--cycle;
+		} %end j loop
+	} %end i loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+
+\end{document}

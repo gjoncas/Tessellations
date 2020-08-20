@@ -1,0 +1,79 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{racing}{rgb}{0.0,0.26,0.15}	%British racing green
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},black!80!racing]
+	\fill[racing] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[above right] at (-0.13,-0.11) {\includegraphics{rhombus-tiling} };
+	
+	\foreach \j in {0,...,5}{ %0.05+5.28*\j
+	\foreach \i in {0,...,8}{ %-2+3.05*\i
+	%BOTTOM ROW
+	%lines, leftward triangle
+	\draw[ultra thick] (-2+3.05*\i-0.02,0.05+5.28*\j)--(-2+3.05*\i+1.5,0.05+5.28*\j+2.64)--(-2+3.05*\i+3.02,0.05+5.28*\j)--cycle;
+	\draw[ultra thick] (-2+3.05*\i+1,0.05+5.28*\j)--(-2+3.05*\i+1.5,0.05+5.28*\j+0.875)--(-2+3.05*\i+2.5,0.05+5.28*\j+0.875);
+	\draw[ultra thick] (-2+3.05*\i+1.5,0.05+5.28*\j+0.875)--(-2+3.05*\i+1,0.05+5.28*\j+1.75);
+	
+	%rhombii, left
+	\fill (-2+3.05*\i+0.35,0.05+5.28*\j+0.2)--++(0.5,0)--++(0.4,0.68)--++(-0.25,0.4)--cycle;  %bot-L
+	\fill (-2+3.05*\i+2.15,0.05+5.28*\j+1.1)--++(-0.5,0)--++(-0.4,0.68)--++(0.25,0.4)--cycle; %top
+	\fill (-2+3.05*\i+1.39,0.05+5.28*\j+0.2)--++(1.25,0)--++(-0.25,0.45)--++(-0.75,0)--cycle; %bot-R
+
+	%lines, rightward triangle
+	\draw[ultra thick] (-2+3.05*\i+1.5,0.05+5.28*\j+2.64)--(-2+3.05*\i+4.55,0.05+5.28*\j+2.64)--(-2+3.05*\i+3.02,0.05+5.28*\j);
+	\draw[ultra thick] (-2+3.05*\i+2.5,0.05+5.28*\j+0.85)--(-2+3.05*\i+3.02,0.05+5.28*\j+1.75)--++(1,0);
+	\draw[ultra thick] (-2+3.05*\i+3.02,0.05+5.28*\j+1.75)--(-2+3.05*\i+2.5,0.05+5.28*\j+2.64);
+	
+	%rhombii, right
+	\fill (-2+3.05*\i+2.9,0.05+5.28*\j+2.4)--++(1.25,0)--++(-0.25,-0.45)--++(-0.75,0)--cycle; %top-R
+	\fill (-2+3.05*\i+2.52,0.05+5.28*\j+1.35)--++(0.25,0.4)--++(-0.4,0.68)--++(-0.5,0)--cycle;
+	\fill (-2+3.05*\i+3.02,0.05+5.28*\j+0.45)--++(-0.25,0.4)--++(0.4,0.68)--++(0.5,0)--cycle;
+	
+	%TOP ROW
+	%lines, leftward triangle
+	\draw[ultra thick] (-3.525+3.05*\i-0.02,0.05+5.28*\j+2.64)--(-3.525+3.05*\i+1.5,0.05+5.28*\j+2.64+2.64)--(-3.525+3.05*\i+3.02,0.05+5.28*\j+2.64)--cycle;
+	\draw[ultra thick] (-3.525+3.05*\i+1,0.05+5.28*\j+2.64)--(-3.525+3.05*\i+1.5,0.05+5.28*\j+2.64+0.875)--(-3.525+3.05*\i+2.5,0.05+5.28*\j+2.64+0.875);
+	\draw[ultra thick] (-3.525+3.05*\i+1.5,0.05+5.28*\j+2.64+0.875)--(-3.525+3.05*\i+1,0.05+5.28*\j+2.64+1.75);
+	
+	%rhombii, left
+	\fill (-3.525+3.05*\i+0.35,0.05+5.28*\j+2.64+0.2)--++(0.5,0)--++(0.4,0.68)--++(-0.25,0.4)--cycle;	%bot-L
+	\fill (-3.525+3.05*\i+2.15,0.05+5.28*\j+2.64+1.1)--++(-0.5,0)--++(-0.4,0.68)--++(0.25,0.4)--cycle; %top
+	\fill (-3.525+3.05*\i+1.39,0.05+5.28*\j+2.64+0.2)--++(1.25,0)--++(-0.25,0.45)--++(-0.75,0)--cycle; %bot-R
+	
+	%lines, rightward triangle
+	\draw[ultra thick] (-3.525+3.05*\i+1.5,0.05+5.28*\j+2.64+2.64)--(-3.525+3.05*\i+4.55,0.05+5.28*\j+2.64+2.64)--(-3.525+3.05*\i+3.02,0.05+5.28*\j+2.64);
+	\draw[ultra thick] (-3.525+3.05*\i+2.5,0.05+5.28*\j+2.64+0.85)--(-3.525+3.05*\i+3.02,0.05+5.28*\j+2.64+1.75)--++(1,0);
+	\draw[ultra thick] (-3.525+3.05*\i+3.02,0.05+5.28*\j+2.64+1.75)--(-3.525+3.05*\i+2.5,0.05+5.28*\j+2.64+2.64);
+	
+	%rhombii, right
+	\fill[very thin] (-3.525+3.05*\i+2.9,0.05+5.28*\j+2.64+2.4)--++(1.25,0)--++(-0.25,-0.45)--++(-0.75,0)--cycle; %top-R
+	\fill (-3.525+3.05*\i+2.52,0.05+5.28*\j+2.64+1.35)--++(0.25,0.4)--++(-0.4,0.68)--++(-0.5,0)--cycle;
+	\fill (-3.525+3.05*\i+3.02,0.05+5.28*\j+2.64+0.45)--++(-0.25,0.4)--++(0.4,0.68)--++(0.5,0)--cycle;
+	
+	} %end \i loop
+	} %end \j loop
+	
+	%\draw[help lines] (0,0) grid (5,5);
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

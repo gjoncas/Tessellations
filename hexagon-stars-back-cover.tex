@@ -1,0 +1,40 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{halaya}{rgb}{0.4,0.22,0.33}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\def\s{1.5}	%length of side
+	\fill[halaya!75!white] (0,0) rectangle (\paperwidth,\paperheight);
+
+		\foreach \j in {0,...,30}{	
+	\foreach \i in {-1,...,20}{
+	%
+	\node[regular polygon,regular polygon sides=6,draw=halaya,ultra thick,scale=3] at (1.05*\i,1.775*\j) {};
+	\node[regular polygon,regular polygon sides=6,draw=halaya,ultra thick,scale=3] at (0.525+1.05*\i,0.9+1.775*\j) {};
+	%
+	} %end i loop
+		} %end j loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

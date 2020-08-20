@@ -1,0 +1,48 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\definecolor{amethyst}{rgb}{0.6,0.4,0.8}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},amethyst,ultra thick]
+	\fill[amethyst!50!white] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[above right,ultra thin] at (-0.14,-0.11) {\includegraphics{"hexagon triangles tiling"} };
+	
+	\def\x{1.525}	%in a diagonal line, how far up one hexagon is from the next one
+	\def\y{1.59}	%in a diagonal line, how far to the side one hexagon is from the next one
+	\def\s{2.14}	%from one diagonal line to the next, how far one hexagon is from the next (side)
+	\def\h{0.53}	%from one diagonal line to the next, how far one hexagon is from the next (down)	
+	
+	\foreach \j in {-10,...,8}{
+	\foreach \i in {0,...,17}{
+	\node[regular polygon,regular polygon sides=6,scale=5.3,draw=amethyst] at (\x*\i+\s*\j,\y*\i-\h*\j) {};
+	\node[regular polygon,regular polygon sides=3,scale=3,draw=amethyst,rotate=30] at (\x*\i+\s*\j,\y*\i-\h*\j) {};
+	\node[regular polygon,regular polygon sides=3,scale=1.5,draw=amethyst,rotate=30] at (\x*\i+\s*\j,\y*\i-\h*\j) {};
+	\foreach \d in {0,...,2}{
+	\draw (\x*\i+\s*\j,\y*\i-\h*\j)--({\x*\i+1.23*cos(\d*120)+\s*\j},{\y*\i+1.23*sin(\d*120)-\h*\j});
+	\draw ({\x*\i+1.05*cos(30+\d*120)+\s*\j},{\y*\i+1.05*sin(30+\d*120)-\h*\j})--({\x*\i+1.05*cos(90+\d*120)+\s*\j},{\y*\i+1.05*sin(90+\d*120)-\h*\j});
+		} %end d loop
+	} %end i loop
+	} %end j loop
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{halaya}{rgb}{0.4,0.22,0.33}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[pink] (0,0) rectangle (\paperwidth,\paperheight);
+	\def\x{0}	\def\y{2.05}		\def\s{1.35}
+
+	\foreach \y in {0,...,7}{	
+	\foreach \x in {0,...,4}{
+	
+	%TOP ROW
+	\draw[magenta!50!pink,yscale=-1] (4*\s*\x,-4*\y-2.05) cos ++(\s,-1) sin ++(\s,-1) cos ++(\s,1) sin ++(\s,1);
+	\draw[magenta!50!pink,yscale=-1,thick] (4*\s*\x+4*0.15,-4*\y-2.05) cos ++(\s-0.15,-1+0.15) sin ++(\s-0.15,-1+0.15) cos ++(\s-0.15,1-0.15) sin ++(\s-0.15,1-0.15);
+	\draw[magenta!50!pink,yscale=-1,very thick] (4*\s*\x+4*0.3,-4*\y-2.05) cos ++(\s-0.3,-1+0.3) sin ++(\s-0.3,-1+0.3) cos ++(\s-0.3,1-0.3) sin ++(\s-0.3,1-0.3);
+	\draw[magenta!50!pink,yscale=-1,ultra thick] (4*\s*\x+4*0.4,-4*\y-2.05) cos ++(\s-0.4,-1+0.4) sin ++(\s-0.4,-1+0.4) cos ++(\s-0.4,1-0.4) sin ++(\s-0.4,1-0.4);
+	\draw[magenta!50!pink,yscale=-1,line width=2] (4*\s*\x+4*0.5,-4*\y-2.05) cos ++(\s-0.5,-1+0.5) sin ++(\s-0.5,-1+0.5) cos ++(\s-0.5,1-0.5) sin ++(\s-0.5,1-0.5);
+	\draw[magenta!50!pink,yscale=-1,line width=2.4] (4*\s*\x+4*0.6,-4*\y-2.05) cos ++(\s-0.6,-1+0.6) sin ++(\s-0.6,-1+0.6) cos ++(\s-0.6,1-0.6) sin ++(\s-0.6,1-0.6);
+	\draw[magenta!50!pink,yscale=-1,line width=2.8] (4*\s*\x+4*0.7,-4*\y-2.05) cos ++(\s-0.7,-1+0.7) sin ++(\s-0.7,-1+0.7) cos ++(\s-0.7,1-0.7) sin ++(\s-0.7,1-0.7);
+	\fill[magenta!50!pink,yscale=-1,line width=3.2] (4*\s*\x+4*0.8,-4*\y-2.05) cos ++(\s-0.8,-1+0.8) sin ++(\s-0.8,-1+0.8) cos ++(\s-0.8,1-0.8) sin ++(\s-0.8,1-0.8)--cycle;
+	
+	\draw[magenta!50!pink] (4*\s*\x,4*\y+2.05) cos ++(\s,-1) sin ++(\s,-1) cos ++(\s,1) sin ++(\s,1);
+	\draw[magenta!50!pink,thick] (4*\s*\x+4*0.15,4*\y+2.05) cos ++(\s-0.15,-1+0.15) sin ++(\s-0.15,-1+0.15) cos ++(\s-0.15,1-0.15) sin ++(\s-0.15,1-0.15);
+	\draw[magenta!50!pink,very thick] (4*\s*\x+4*0.3,4*\y+2.05) cos ++(\s-0.3,-1+0.3) sin ++(\s-0.3,-1+0.3) cos ++(\s-0.3,1-0.3) sin ++(\s-0.3,1-0.3);
+	\draw[magenta!50!pink,ultra thick] (4*\s*\x+4*0.4,4*\y+2.05) cos ++(\s-0.4,-1+0.4) sin ++(\s-0.4,-1+0.4) cos ++(\s-0.4,1-0.4) sin ++(\s-0.4,1-0.4);
+	\draw[magenta!50!pink,line width=2] (4*\s*\x+4*0.5,4*\y+2.05) cos ++(\s-0.5,-1+0.5) sin ++(\s-0.5,-1+0.5) cos ++(\s-0.5,1-0.5) sin ++(\s-0.5,1-0.5);
+	\draw[magenta!50!pink,line width=2.4] (4*\s*\x+4*0.6,4*\y+2.05) cos ++(\s-0.6,-1+0.6) sin ++(\s-0.6,-1+0.6) cos ++(\s-0.6,1-0.6) sin ++(\s-0.6,1-0.6);
+	\draw[magenta!50!pink,line width=2.8] (4*\s*\x+4*0.7,4*\y+2.05) cos ++(\s-0.7,-1+0.7) sin ++(\s-0.7,-1+0.7) cos ++(\s-0.7,1-0.7) sin ++(\s-0.7,1-0.7);
+	\fill[magenta!50!pink,line width=3.2] (4*\s*\x+4*0.8,4*\y+2.05) cos ++(\s-0.8,-1+0.8) sin ++(\s-0.8,-1+0.8) cos ++(\s-0.8,1-0.8) sin ++(\s-0.8,1-0.8)--cycle;
+	
+	%BOTTOM ROW
+	\draw[magenta!50!pink,yscale=-1] (-2*\s+4*\s*\x,-4*\y-0.05) cos ++(\s,-1) sin ++(\s,-1) cos ++(\s,1) sin ++(\s,1);
+	\draw[magenta!50!pink,yscale=-1,thick] (-2*\s+4*\s*\x+4*0.15,-4*\y-0.05) cos ++(\s-0.15,-1+0.15) sin ++(\s-0.15,-1+0.15) cos ++(\s-0.15,1-0.15) sin ++(\s-0.15,1-0.15);
+	\draw[magenta!50!pink,yscale=-1,very thick] (-2*\s+4*\s*\x+4*0.3,-4*\y-0.05) cos ++(\s-0.3,-1+0.3) sin ++(\s-0.3,-1+0.3) cos ++(\s-0.3,1-0.3) sin ++(\s-0.3,1-0.3);
+	\draw[magenta!50!pink,yscale=-1,ultra thick] (-2*\s+4*\s*\x+4*0.4,-4*\y-0.05) cos ++(\s-0.4,-1+0.4) sin ++(\s-0.4,-1+0.4) cos ++(\s-0.4,1-0.4) sin ++(\s-0.4,1-0.4);
+	\draw[magenta!50!pink,yscale=-1,line width=2] (-2*\s+4*\s*\x+4*0.5,-4*\y-0.05) cos ++(\s-0.5,-1+0.5) sin ++(\s-0.5,-1+0.5) cos ++(\s-0.5,1-0.5) sin ++(\s-0.5,1-0.5);
+	\draw[magenta!50!pink,yscale=-1,line width=2.4] (-2*\s+4*\s*\x+4*0.6,-4*\y-0.05) cos ++(\s-0.6,-1+0.6) sin ++(\s-0.6,-1+0.6) cos ++(\s-0.6,1-0.6) sin ++(\s-0.6,1-0.6);
+	\draw[magenta!50!pink,yscale=-1,line width=2.8] (-2*\s+4*\s*\x+4*0.7,-4*\y-0.05) cos ++(\s-0.7,-1+0.7) sin ++(\s-0.7,-1+0.7) cos ++(\s-0.7,1-0.7) sin ++(\s-0.7,1-0.7);
+	\fill[magenta!50!pink,yscale=-1,line width=3.2] (-2*\s+4*\s*\x+4*0.8,-4*\y-0.05) cos ++(\s-0.8,-1+0.8) sin ++(\s-0.8,-1+0.8) cos ++(\s-0.8,1-0.8) sin ++(\s-0.8,1-0.8)--cycle;
+	
+	\draw[magenta!50!pink] (-2*\s+4*\s*\x,4*\y+0.05) cos ++(\s,-1) sin ++(\s,-1) cos ++(\s,1) sin ++(\s,1);
+	\draw[magenta!50!pink,thick] (-2*\s+4*\s*\x+4*0.15,4*\y+0.05) cos ++(\s-0.15,-1+0.15) sin ++(\s-0.15,-1+0.15) cos ++(\s-0.15,1-0.15) sin ++(\s-0.15,1-0.15);
+	\draw[magenta!50!pink,very thick] (-2*\s+4*\s*\x+4*0.3,4*\y+0.05) cos ++(\s-0.3,-1+0.3) sin ++(\s-0.3,-1+0.3) cos ++(\s-0.3,1-0.3) sin ++(\s-0.3,1-0.3);
+	\draw[magenta!50!pink,ultra thick] (-2*\s+4*\s*\x+4*0.4,4*\y+0.05) cos ++(\s-0.4,-1+0.4) sin ++(\s-0.4,-1+0.4) cos ++(\s-0.4,1-0.4) sin ++(\s-0.4,1-0.4);
+	\draw[magenta!50!pink,line width=2] (-2*\s+4*\s*\x+4*0.5,4*\y+0.05) cos ++(\s-0.5,-1+0.5) sin ++(\s-0.5,-1+0.5) cos ++(\s-0.5,1-0.5) sin ++(\s-0.5,1-0.5);
+	\draw[magenta!50!pink,line width=2.4] (-2*\s+4*\s*\x+4*0.6,4*\y+0.05) cos ++(\s-0.6,-1+0.6) sin ++(\s-0.6,-1+0.6) cos ++(\s-0.6,1-0.6) sin ++(\s-0.6,1-0.6);
+	\draw[magenta!50!pink,line width=2.8] (-2*\s+4*\s*\x+4*0.7,4*\y+0.05) cos ++(\s-0.7,-1+0.7) sin ++(\s-0.7,-1+0.7) cos ++(\s-0.7,1-0.7) sin ++(\s-0.7,1-0.7);
+	\fill[magenta!50!pink,line width=3.2] (-2*\s+4*\s*\x+4*0.8,4*\y+0.05) cos ++(\s-0.8,-1+0.8) sin ++(\s-0.8,-1+0.8) cos ++(\s-0.8,1-0.8) sin ++(\s-0.8,1-0.8)--cycle;
+	
+	} %end x loop
+	} %end y loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

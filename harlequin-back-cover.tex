@@ -1,0 +1,47 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[orange!70!black] (0,0) rectangle (\paperwidth,\paperheight);
+	\def\s{1.01}	%height of grid
+	
+	\foreach \i in {0,...,10}{
+		\foreach \j in {0,...,14}{	
+	%
+	\fill[black!90!brown,very thin] ({(5/82)*\s+(175/82)*\s*\i},{-(28/41)*\s+(80/41)*\s*\j})--++(\s,-\s)--++(\s,\s)--++(0,{(34/41)*\s})--++(-\s,-\s)--++(-\s,\s)--cycle;
+	
+	\fill[black!90!brown,very thin] ({(-165/164)*\s+(175/82)*\s*\i},{(8/41)*\s+(80/41)*\s*\j})--++(\s,\s)--++(\s,-\s)--++(0,{(-34/41)*\s})--++(-\s,\s)--++(-\s,-\s)--cycle;
+	%
+		} %end j loop
+	} %end i loop	
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}
+
+%FIRST ATTEMPT -- tried doing the outlines, not inner shapes
+%				  problem: pointy parts didn't line up right without making the lines too wide
+%\draw[red,line width=7] (0,2.5)--++(2.15,-2.15)--++(2.15,2.15)--++(0,2)--++(-2.15,-2.15)--++(-2.15,2.15)--cycle;
+%\draw[red,line width=7] (4.5,2.5)--++(2.15,-2.15)--++(2.15,2.15)--++(0,2)--++(-2.15,-2.15)--++(-2.15,2.15)--cycle;
+
+%SECOND ATTEMPT -- before generalizing the size (ugh! ugly-ass fractions in this one!)
+%\fill[black!90!gray,very thin] (0.125+4.375*\i,-1.4+4*\j)--++(2.05,-2.05)--++(2.05,2.05)--++(0,1.7)--++(-2.05,-2.05)--++(-2.05,2.05)--cycle;
+%\fill[black!90!gray,very thin] (-2.0625+4.375*\i,0.4+4*\j)--++(2.05,2.05)--++(2.05,-2.05)--++(0,-1.7)--++(-2.05,2.05)--++(-2.05,-2.05)--cycle;

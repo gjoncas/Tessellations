@@ -1,0 +1,55 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{burgundy}{rgb}{0.5,0.0,0.13}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},burgundy!70!black]
+	\fill[burgundy] (0,0) rectangle (\paperwidth,\paperheight);
+	\foreach \j in {0,...,8}{ 
+	\foreach \i in {0,...,11}{ 
+	
+	%BOTTOM ROW
+	\node[regular polygon,regular polygon sides=6,scale=5,draw=burgundy!70!black,very thick,rotate=30] at (1+2*\i,0.5+3.44*\j) {};
+	\foreach \k in {0,...,2}{
+		\draw[very thick] ({1+2*\i+1.15*cos(-90+60*\k)},{0.5+3.44*\j+1.15*sin(-90+60*\k)})-- ({1+2*\i+1.15*cos(90+60*\k)},{0.5+3.44*\j+1.15*sin(90+60*\k)});
+		\draw[ultra thick] (1+2*\i,0.5+3.44*\j)-- ({1+2*\i+0.8*cos(45+120*\k)},{0.5+3.44*\j+0.8*sin(45+120*\k)})-- ({1+2*\i+1.15*cos(90+120*\k)},{0.5+3.44*\j+1.15*sin(90+120*\k)});
+		\draw[ultra thick] (1+2*\i,0.5+3.44*\j)-- ({1+2*\i+0.8*cos(135+120*\k)},{0.5+3.44*\j+0.8*sin(135+120*\k)})-- ({1+2*\i+1.15*cos(90+120*\k)},{0.5+3.44*\j+1.15*sin(90+120*\k)});
+	}
+	\node[regular polygon,regular polygon sides=3,scale=2.9,draw=burgundy!70!black,thick,rotate=0] at (1+2*\i,0.5+3.44*\j) {};
+	\node[regular polygon,regular polygon sides=3,scale=2.9,draw=burgundy!70!black,thick,rotate=60] at (1+2*\i,0.5+3.44*\j) {};
+	
+	%TOP ROW
+	\node[regular polygon,regular polygon sides=6,scale=5,draw=burgundy!70!black,very thick,rotate=30] at (2*\i,2.21+3.44*\j) {};
+	\foreach \k in {0,...,2}{
+		\draw[very thick] ({2*\i+1.15*cos(-90+60*\k)},{2.21+3.44*\j+1.15*sin(-90+60*\k)})-- ({2*\i+1.15*cos(90+60*\k)},{2.21+3.44*\j+1.15*sin(90+60*\k)});
+		\draw[ultra thick] (2*\i,2.21+3.44*\j)-- ({2*\i+0.8*cos(45+120*\k)},{2.21+3.44*\j+0.8*sin(45+120*\k)})-- ({2*\i+1.15*cos(90+120*\k)},{2.21+3.44*\j+1.15*sin(90+120*\k)});
+		\draw[ultra thick] (2*\i,2.21+3.44*\j)-- ({2*\i+0.8*cos(135+120*\k)},{2.21+3.44*\j+0.8*sin(135+120*\k)})-- ({2*\i+1.15*cos(90+120*\k)},{2.21+3.44*\j+1.15*sin(90+120*\k)});
+	}
+	\node[regular polygon,regular polygon sides=3,scale=2.9,draw=burgundy!70!black,thick,rotate=0] at (2*\i,2.21+3.44*\j) {};
+	\node[regular polygon,regular polygon sides=3,scale=2.9,draw=burgundy!70!black,thick,rotate=60] at (2*\i,2.21+3.44*\j) {};
+	
+	} %end \i loop
+	} %end \j loop
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

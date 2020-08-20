@@ -1,0 +1,44 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\definecolor{gamboge}{rgb}{0.89,0.61,0.06}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[gamboge!80!white] (0,0) rectangle (\paperwidth,\paperheight);
+	\def\s{0.75}
+	
+	\foreach \j in {0,...,18}{
+	\foreach \i in {0,...,14}{
+	\draw[gamboge] (1.5*\i+\s,2*\s*\j-\s)--++(0,2*\s);
+	\draw[gamboge] (1.5*\i+\s,2*\s*\j-\s)--++(-.5*\s,1.5*\s);
+	\draw[gamboge] (1.5*\i+\s,2*\s*\j-\s)--++(0.5*\s,1.5*\s);
+	
+	\draw[gamboge] (1.5*\i,2*\s*\j)--++(\s,\s)--++(-\s,\s)--++(-\s,-\s)--cycle;
+	\draw[gamboge] (1.5*\i,2*\s*\j)--++(0,2*\s);
+	\draw[gamboge] (1.5*\i,2*\s*\j)--++(-.5*\s,1.5*\s);
+	\draw[gamboge] (1.5*\i,2*\s*\j)--++(0.5*\s,1.5*\s);
+	} %end \i loop
+	} %end \j loop
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

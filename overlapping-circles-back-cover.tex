@@ -1,0 +1,39 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[byzantium] (0,0) rectangle (\paperwidth,\paperheight);
+	\def\s{0.55}
+	
+	\foreach \j in {0,...,13}{
+	\foreach \i in {-1,...,19}{
+		\draw[byzantium!80!black] (2*\s*\i,2.1*\j) circle (0.75cm);
+		\draw[byzantium!80!black] (\s+2*\s*\i,2.1*\j+1.05) circle (0.75cm);
+	} %end i loop
+	} %end j loop
+		
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

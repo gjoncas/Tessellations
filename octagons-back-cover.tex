@@ -1,0 +1,39 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{offwhite}{RGB}{249,249,249}
+\definecolor{myred}{RGB}{194,25,27}			%dark red
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+		%GOING FROM BOTTOM
+		\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+		\def\w{19}	%width of grid
+		\def\h{24}	%height of grid
+		\def\s{\paperwidth/\w}	%length of square
+		\fill[olive!20!white] (0,0) rectangle (\paperwidth,\paperheight);
+		
+		\foreach \i in {1,...,\w}{
+			\foreach \j in {1,...,\h}{
+				\node[draw=olive!50!black,very thick,regular polygon,regular polygon sides=8,scale=5.25,rotate=45,xshift=0.02cm] at (-1.4+\i*1.25,-1.3+\j*1.25) {};
+			} %end j loop
+		} %end i loop
+		\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

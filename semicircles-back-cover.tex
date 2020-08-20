@@ -1,0 +1,39 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{tikz}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},yshift=-0.9cm]
+	\def\s{0.9}	%height of grid
+	\fill[cyan!30!white] (0,0) rectangle (\paperwidth,\paperheight+0.9cm);
+	
+	\foreach \i in {0,...,11}{
+		\foreach \j in {0,...,7}{	
+	%
+	\fill[cyan!50!white,rotate around={\i*90:(2*\s*\i+\s,4*\s*\j+\s)}] (2*\s*\i,4*\s*\j) arc (-90:90:0.5*\s cm) arc (-90:90:0.5*\s cm) arc (90:-90:\s cm);
+	\fill[cyan!50!white,rotate around={\i*90:(2*\s*\i+\s,4*\s*\j+\s)}] (2*\s*\i+2*\s,4*\s*\j) arc (-90:-270:0.5*\s cm) arc (-90:-270:0.5*\s cm) arc (90:270:\s cm);
+	%
+	\fill[cyan!50!white,rotate around={{(\i-1)*90}:(2*\s*\i+\s,4*\s*\j+3*\s)}] (2*\s*\i,2*\s+4*\s*\j) arc (-90:90:0.5*\s cm) arc (-90:90:0.5*\s cm) arc (90:-90:\s cm);
+	\fill[cyan!50!white,rotate around={{(\i-1)*90}:(2*\s*\i+\s,4*\s*\j+3*\s)}] (2*\s*\i+2*\s,2*\s+4*\s*\j) arc (-90:-270:0.5*\s cm) arc (-90:-270:0.5*\s cm) arc (90:270:\s cm);
+	%
+		} %end j loop
+	} %end i loop	
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{offwhite}{RGB}{249,249,249}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\newcommand{\Colors}{{%
+		"FF8000",%orange
+		"FF1493",%magenta
+		"191970",%blue
+}}
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\def\w{19}	%width of grid
+	\def\h{24}	%height of grid
+	\fill[black] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \i in {0,...,10}{
+		\foreach \j in {0,...,6}{
+	%
+	\begin{scope}
+	\pgfmathparse{random(0,2)}
+	\pgfmathsetmacro{\mycolor}{\Colors[\pgfmathresult]}
+	\definecolor{mycolor}{HTML}{\mycolor}
+	%
+	\node[fill=white,regular polygon,regular polygon sides=6,scale=5.25] at (1.125+\i*2.25,1+4*\j) {};
+	\node[fill=mycolor,regular polygon,regular polygon sides=6,scale=4.5] at (1.125+\i*2.25,1+4*\j) {};
+	\node[fill=white,regular polygon,regular polygon sides=6,scale=3.85] at (1.125+\i*2.25,1+4*\j) {};
+	\node[fill=mycolor,regular polygon,regular polygon sides=6,scale=3] at (1.125+\i*2.25,1+4*\j) {};
+	\end{scope}
+		
+	\begin{scope}
+	\pgfmathparse{random(0,2)}
+	\pgfmathsetmacro{\mycolor}{\Colors[\pgfmathresult]}
+	\definecolor{mycolor}{HTML}{\mycolor}
+	%
+	\node[fill=white,regular polygon,regular polygon sides=6,scale=5.25] at (\i*2.25,3+4*\j) {};
+	\node[fill=mycolor,regular polygon,regular polygon sides=6,scale=4.5] at (\i*2.25,3+4*\j) {};
+	\node[fill=white,regular polygon,regular polygon sides=6,scale=3.85] at (\i*2.25,3+4*\j) {};
+	\node[fill=mycolor,regular polygon,regular polygon sides=6,scale=3] at (\i*2.25,3+4*\j) {};
+	\end{scope}
+		} %end j loop
+	} %end i loop	
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

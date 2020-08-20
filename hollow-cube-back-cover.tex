@@ -1,0 +1,87 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{rblue}{rgb}{0.0,0.14,0.4}
+\definecolor{rosewood}{rgb}{0.4,0.0,0.04}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},scale=2]
+	\fill[rosewood] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[above right] at (-0.275,-0.33) {\includegraphics{3d-cube-tiling} };
+	
+	%dark color: rosewood
+	%medium color: rosewood!85
+	%light color: rosewood!70
+	
+	\foreach \j in {0,...,8}{
+	\foreach \i in {0,...,3}{
+	
+	\fill[rosewood!85] (3.12*\i,1.8*\j)--(3.12*\i-0.52,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.8)--(3.12*\i+0.52,1.8*\j+0.9)--cycle; %big diamond
+	\fill[black] (3.12*\i,1.8*\j+0.35)--(3.12*\i-0.52+0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--cycle; %small diamond
+	\fill[rosewood!70] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood!70] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	\fill[rosewood,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i,1.8*\j)--(3.12*\i-0.52,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.8)--(3.12*\i+0.52,1.8*\j+0.9)--cycle; %big diamond
+	\fill[black,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i,1.8*\j+0.35)--(3.12*\i-0.52+0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--cycle; %small diamond
+	\fill[rosewood!85,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood!70,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood!70,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood!85,rotate around={-120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	\fill[rosewood!70,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i,1.8*\j)--(3.12*\i-0.52,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.8)--(3.12*\i+0.52,1.8*\j+0.9)--cycle; %big diamond
+	\fill[black,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i,1.8*\j+0.35)--(3.12*\i-0.52+0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--cycle; %small diamond
+	\fill[rosewood,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood!85,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.2,1.8*\j+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood!85,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood,rotate around={120:(3.12*\i+0.52,1.8*\j+0.9)}] (3.12*\i-0.52+0.625,1.8*\j+0.9)--(3.12*\i+0.52-0.2,1.8*\j+0.9)--(3.12*\i,1.8*\j+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	
+	%RIGHT SIDE
+	\fill[rosewood!85] (3.12*\i+1.56,1.8*\j-0.9)--(3.12*\i+1.56-0.52,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.8)--(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)--cycle; %big diamond
+	\fill[black] (3.12*\i+1.56,1.8*\j-0.9+0.35)--(3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--cycle; %small diamond
+	\fill[rosewood!70] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood!70] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	\fill[rosewood,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56,1.8*\j-0.9)--(3.12*\i+1.56-0.52,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.8)--(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)--cycle; %big diamond
+	\fill[black,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56,1.8*\j-0.9+0.35)--(3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--cycle; %small diamond
+	\fill[rosewood!85,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood!70,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood!70,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood!85,rotate around={-120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	\fill[rosewood!70,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56,1.8*\j-0.9)--(3.12*\i+1.56-0.52,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.8)--(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)--cycle; %big diamond
+	\fill[black,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56,1.8*\j-0.9+0.35)--(3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--cycle; %small diamond
+	\fill[rosewood,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,0.18)--++(-0.22,0)--cycle; %top wedge
+	\fill[rosewood!85,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.2,1.8*\j-0.9+0.9)--++(0.425,0)--++(-0.1,-0.18)--++(-0.22,0)--cycle; %bottom wedge
+	\fill[rosewood!85,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+1.85-0.4)--++(-0.12,-0.2)--cycle; %top wedge
+	\fill[rosewood,rotate around={120:(3.12*\i+1.56+0.52,1.8*\j-0.9+0.9)}] (3.12*\i+1.56-0.52+0.625,1.8*\j-0.9+0.9)--(3.12*\i+1.56+0.52-0.2,1.8*\j-0.9+0.9)--(3.12*\i+1.56,1.8*\j-0.9+0.35)--++(-0.12,0.2)--cycle; %bottom wedge
+	
+	} %end i loop
+	} %end j loop
+	
+	%\draw[help lines] (0,0) grid (5,5);
+	\end{tikzpicture}
+		
+	\end{titlepage}	
+	
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{cadmium}{rgb}{0.0, 0.42, 0.24}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[cadmium!90] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \j in {-9,...,7}{
+	\foreach \i in {0,...,14}{
+		\node[regular polygon,regular polygon sides=6,scale=6,fill=cadmium!75!black] at (1.715*\i+0.6875*\j,1.785*\i-2.375*\j) {};
+		\node[regular polygon,regular polygon sides=6,scale=1.5,fill=cadmium!90,very thick] at (1.715*\i+0.6875*\j,1.785*\i-2.375*\j) {};
+	\foreach \k in {0,...,6}{
+		\fill[cadmium] ({1.715*\i+0.6875*\j+0.335*cos(60*\k)},{1.785*\i-2.375*\j+0.335*sin(60*\k)}) -- ({1.715*\i+0.6875*\j+1.375*cos(60*\k)},{1.785*\i-2.375*\j+1.375*sin(60*\k)}) -- ({1.715*\i+0.6875*\j+1.1875*cos(60*\k+30)},{1.785*\i-2.375*\j+1.1875*sin(60*\k+30)}) -- ({1.715*\i+0.6875*\j+0.335*cos(60*\k+60)},{1.785*\i-2.375*\j+0.335*sin(60*\k+60)}) -- cycle;
+		} %end k loop	
+	} %end i loop
+	} %end j loop
+		
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

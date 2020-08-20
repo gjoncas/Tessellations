@@ -1,0 +1,51 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[alizarin] (0,0) rectangle (\paperwidth,\paperheight);
+
+	\foreach \j in {0,...,12}{
+	\foreach \i in {0,...,5}{
+	
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!90!black,rotate=60] at (4.14*\i,2.4*\j+0.8) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin,rotate=0] at (4.14*\i+0.69,2.4*\j+0.4) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!90,rotate=60] at (4.14*\i+0.69,2.4*\j-0.4) {};	
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!80,rotate=0] at (4.14*\i,2.4*\j-0.8) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!70,rotate=60] at (4.14*\i-0.69,2.4*\j-0.4) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!80!black,rotate=0] at (4.14*\i-0.69,2.4*\j+0.4) {};
+	
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!90!black,rotate=60] at (4.14*\i+2.07,2.4*\j+1.2+0.8) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin,rotate=0] at (4.14*\i+2.07+0.69,2.4*\j+1.2+0.4) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!90,rotate=60] at (4.14*\i+2.07+0.69,2.4*\j+1.2-0.4) {};	
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!80,rotate=0] at (4.14*\i+2.07,2.4*\j+1.2-0.8) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!70,rotate=60] at (4.14*\i+2.07-0.69,2.4*\j+1.2-0.4) {};
+	\node[regular polygon,regular polygon sides=3,scale=2,fill=alizarin!80!black,rotate=0] at (4.14*\i+2.07-0.69,2.4*\j+1.2+0.4) {};
+	
+	} %end i loop
+	} %end j loop
+		
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
