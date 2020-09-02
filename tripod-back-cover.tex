@@ -1,0 +1,78 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+\usepackage{comment}
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[green!50!cyan] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[above right] at (-0.11,-0.69) {\includegraphics[width=0.7\linewidth]{3d-tri-tiling.jpg} };
+	
+	\def\x{3}	\def\y{2} 		%centroid is (\x+0.05,\y)
+	
+	\foreach \j in {-1,...,11}{ %horizontal
+	\foreach \i in {-1,...,14}{ %vertical
+	
+	%OUTLINE
+	%\draw[red] (\x-0.55*\i+2.5*\j-1.95,\y+2.5*\i-0.85*\j)--++(0,0.55)--++(0.95,0.55)--++(1,-0.55)--++(0.5,0.3)--++(0,0.5) --++(0.5,0.3)--++(0.5,-0.3)--++(0,-1.1)--++(-0.95,-0.55)--++(0,-0.55)--++(0.5,-0.3) --++(0,-0.5)--++(-0.5,-0.3)--++(-1,0.55)--++(0,1.1)--++(-0.5,0.3)--++(-0.5,-0.3)--cycle;
+	
+	%RIGHT DIAMONDS
+	\fill[green!50!cyan!80!black] (\x-0.55*\i+2.5*\j+1,\y+2.5*\i-0.85*\j+0.55)--++(0,0.5)--++(-0.5,0.3)--++(0,-0.5)--cycle;
+	\fill[green!50!cyan!70!white] (\x-0.55*\i+2.5*\j+1,\y+2.5*\i-0.85*\j+1.05)--++(-0.5,0.3)--++(0.5,0.3)--++(0.5,-0.3)--cycle;
+	
+	%LEFT DIAMONDS
+	\fill[green!50!cyan!80!black] (\x-0.55*\i+2.5*\j-1.95,\y+2.5*\i-0.85*\j)--++(0,0.55)--++(0.5,-0.3)--++(0,-0.55)--cycle;
+	%\fill[green!50!cyan] (\x-0.55*\i+2.5*\j-1.95+0.5,\y+2.5*\i-0.85*\j+0.25)--++(0.5,0.3)--++(0,-0.55)--++(-0.5,-0.3)--cycle;
+	
+	%BOTTOM DIAMONDS
+	\fill[green!50!cyan!75!white] (\x-0.55*\i+2.5*\j+0.05,\y+2.5*\i-0.85*\j-1.1)--++(0.5,0.25)--++(0.5,-0.3)--++(-0.5,-0.25)--cycle;
+	%\fill[green!50!cyan] (\x-0.55*\i+2.5*\j+1.05,\y+2.5*\i-0.85*\j-1.15)--++(0,-0.5)--++(-0.5,-0.3)--++(0,0.55)--cycle;
+	
+	%LIGHT SHAPE
+	\fill[green!50!cyan!75!white] %
+	(\x-0.55*\i+2.5*\j-1.95,\y+2.5*\i-0.85*\j+0.55)--++( 0.95, 0.55)--++( 1,-0.55)--++( 0.5, 0.3)--++(0.5,-0.3)%
+	--++(-0.95,-0.55)--++(-1, 0.55)--++(-0.5,-0.3)--cycle;
+	
+	%DARK SHAPE
+	\fill[green!50!cyan!80!black] (\x-0.55*\i+2.5*\j-1.95+1,\y+2.5*\i-0.85*\j)--++(0,0.55)--++(1,-0.55)--++(0,-1.1)--++(0.5,-0.3)--++(0,-0.55) --++(-1,0.55)--++(0,1.1)--cycle;
+	
+	} %end i loop
+	} %end j loop
+	
+	%---------------------
+	%OUTLINES (for testing)
+	
+	%\draw[red] (\x-1.95+1.95,\y+1.65)--++(0,0.55)--++(0.95,0.55)--++(1,-0.55)--++(0.5,0.3)--++(0,0.5) --++(0.5,0.3)--++(0.5,-0.3)--++(0,-1.1)--++(-0.95,-0.55)--++(0,-0.55)--++(0.5,-0.3) --++(0,-0.5)--++(-0.5,-0.3) --++(-1,0.55)--++(0,1.1)--++(-0.5,0.3)--++(-0.5,-0.3)--cycle;
+	
+	%\draw[red] (\x-1.95+2.5,\y-0.85)--++(0,0.55)--++(0.95,0.55)--++(1,-0.55)--++(0.5,0.3)--++(0,0.5) --++(0.5,0.3)--++(0.5,-0.3)--++(0,-1.1)--++(-0.95,-0.55)--++(0,-0.55)--++(0.5,-0.3) --++(0,-0.5)--++(-0.5,-0.3) --++(-1,0.55)--++(0,1.1)--++(-0.5,0.3)--++(-0.5,-0.3)--cycle;
+	
+	%\draw[magenta] (\x-2.5,\y+2.5)--++(0,0.55)--++(0.95,0.55)--++(1,-0.55)--++(0.5,0.3)--++(0,0.5) --++(0.5,0.3)--++(0.5,-0.3)--++(0,-1.1)--++(-0.95,-0.55)--++(0,-0.55)--++(0.5,-0.3) --++(0,-0.5)--++(-0.5,-0.3) --++(-1,0.55)--++(0,1.1)--++(-0.5,0.3)--++(-0.5,-0.3)--cycle;
+	
+	%\fill[yellow] (\x,\y) circle (1pt);
+	%---------------------
+	
+	%\draw[help lines] (0,0) grid (5,5);	
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
