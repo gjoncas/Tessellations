@@ -17,6 +17,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![arrows](/pics/arrows.png)
+<br><b>Arrows</b>
+
+&nbsp;
+
 ![chainlink](/pics/chainlink.png)
 <br><b>Chainlink</b>
 
