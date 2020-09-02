@@ -122,6 +122,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![tripod](/pics/tripod.png)
+<br><b>Tripod</b>
+
+&nbsp;
+
 ![truchet](/pics/truchet.png)
 <br><b>Truchet tiling</b> (randomized)
 
