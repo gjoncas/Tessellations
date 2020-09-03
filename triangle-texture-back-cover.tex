@@ -1,0 +1,57 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{halaya}{rgb}{0.4,0.22,0.33}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[blue!40!black] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \y in {0,...,11}{ %vertical
+	\foreach \x in {-1,...,15}{ %horizontal
+	
+	%BOTTOM ROW
+	%\draw[red,thin] (1.4*\x,2.4*\y)--++(-0.7,1.2)--++(1.4,0)--cycle;
+	\fill[violet!70!black] (1.4*\x,2.4*\y)--++(0,0.85)--++(0.7,0.35)--cycle;
+	\fill[violet!55!black] (1.4*\x,2.4*\y)--++(0,0.85)--++(-0.7,0.35)--cycle;
+	\fill[violet!40!black] (1.4*\x,2.4*\y+0.85)--++(0.7,0.35)--++(-1.4,0)--cycle;
+	
+	%\draw[blue,thin] (1.4*\x,2.4*\y)--++(1.4,0)--++(-0.7,1.2)--cycle;
+	\fill[blue!50!black] (1.4*\x,2.4*\y)--++(1.4,0)--++(-0.7,0.35)--cycle;
+	\fill[blue!35!black] (1.4*\x+1.4,2.4*\y)--++(-0.7,0.35)--++(0,0.85)--cycle;
+	\fill[blue!20!black] (1.4*\x,2.4*\y)--++(0.7,1.2)--++(0,-0.85)--cycle;
+	
+	%TOP ROW
+	\fill[violet!70!black] (1.4*\x+0.7,2.4*\y+1.2)--++(0,0.85)--++(0.7,0.35)--cycle;
+	\fill[violet!55!black] (1.4*\x+0.7,2.4*\y+1.2)--++(0,0.85)--++(-0.7,0.35)--cycle;
+	\fill[violet!40!black] (1.4*\x+0.7,2.4*\y+0.85+1.2)--++(0.7,0.35)--++(-1.4,0)--cycle;
+	
+	\fill[blue!55!black] (1.4*\x+0.7,2.4*\y+1.2)--++(1.4,0)--++(-0.7,0.35)--cycle;
+	\fill[blue!40!black] (1.4*\x+1.4+0.7,2.4*\y+1.2)--++(-0.7,0.35)--++(0,0.85)--cycle;
+	\fill[blue!25!black] (1.4*\x+0.7,2.4*\y+1.2)--++(0.7,1.2)--++(0,-0.85)--cycle;
+
+	} %end x loop
+	} %end y loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}

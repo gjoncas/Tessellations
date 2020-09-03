@@ -1,0 +1,45 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{candyapple}{rgb}{0.89,0.02,0.17}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[candyapple!50!white] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \y in {0,...,45}{ %vertical
+	\foreach \x in {0,...,19}{ %horizontal
+	
+	%\draw[very thin,red] (1.14*\x,0.64*\y)--++(0,-0.425)--++(0.19,0.12)--++(0,0.2)--++(0.19,0.12)--++(0,0.2) --++(-0.19,0.12)--++(-0.19,-0.12)--++(-0.19,0.12)--++(-0.19,-0.12)--++(0,-0.2)--++(0.19,-0.12)--++(0,-0.2)--++(0.19,-0.12);
+	\fill[very thin,candyapple] (1.14*\x,0.64*\y)--++(0,-0.425)--++(0.19,0.12)--++(0,0.2)--++(0.19,0.12)--++(0,0.2)--cycle;
+	\fill[very thin,candyapple!70!white] (1.14*\x,0.64*\y)--++(0,-0.425)--++(-0.19,0.12)--++(0,0.2)--++(-0.19,0.12)--++(0,0.2)--cycle;
+	
+	%\draw[very thin,blue] (1.14*\x+0.57,0.64*\y-0.32)--++(0,-0.425)--++(0.19,0.12)--++(0,0.2)--++(0.19,0.12)--++(0,0.2) --++(-0.19,0.12)--++(-0.19,-0.12)--++(-0.19,0.12)--++(-0.19,-0.12)--++(0,-0.2)--++(0.19,-0.12)--++(0,-0.2)--++(0.19,-0.12);
+	\fill[very thin,candyapple] (1.14*\x+0.57,0.64*\y-0.32)--++(0,-0.425)--++(0.19,0.12)--++(0,0.2)--++(0.19,0.12)--++(0,0.2)--cycle;
+	\fill[very thin,candyapple!70!white] (1.14*\x+0.57,0.64*\y-0.32)--++(0,-0.425)--++(-0.19,0.12)--++(0,0.2)--++(-0.19,0.12)--++(0,0.2)--cycle;
+	
+	} %end x loop
+	} %end y loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
