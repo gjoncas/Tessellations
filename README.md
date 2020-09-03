@@ -92,6 +92,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![overlap-cube](/pics/overlap-cube.png)
+<br><b>Overlapping cubes</b>
+
+&nbsp;
+
 ![plus](/pics/plus.png)
 <br><b>3D Plus</b>
 
@@ -119,6 +124,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 ![shining](/pics/shining.png)
 <br><b>Carpet from <i>The Shining</i></b> (surprisingly simple to replicate!)
+
+&nbsp;
+
+![triangle-texture](/pics/triangle-texture.png)
+<br><b>Triangle texture</b>
 
 &nbsp;
 
