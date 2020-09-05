@@ -32,6 +32,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![diagonal-cubes](/pics/diagonal-cubes.png)
+<br><b>Diagonal cubes</b> (actually made using triangles!)
+
+&nbsp;
+
 ![fish](/pics/fish.png)
 <br><b>Fish</b> (inspired by Escher)
 
