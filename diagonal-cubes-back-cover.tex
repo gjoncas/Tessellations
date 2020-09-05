@@ -1,0 +1,51 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{lazuli}{rgb}{0.15,0.38,0.61}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)}]
+	\fill[lazuli] (0,0) rectangle (\paperwidth,\paperheight);
+	%\node[above right] at (-0.2,-0.2) {\includegraphics[width=0.7\linewidth]{blackwork} };
+	\def\s{2.5}		\def\t{1.45}
+	
+	\foreach \j in {0,...,7}{
+	\foreach \i in {-4,...,4}{
+	
+	%\draw ({4.34*\i+2.17*\j+\s*cos(90)},{3.75*\j+\s*sin(90)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\s*cos(330)},{3.75*\j+\s*sin(330)})--cycle;
+	\fill[lazuli!80!black] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	\fill[lazuli!80!white,rotate around={120:(4.34*\i+2.17*\j+0,3.75*\j)}] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	\fill[lazuli!70!white,rotate around={-120:(4.34*\i+2.17*\j,3.75*\j)}] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	
+	%\draw[xshift=2.165cm,yshift=1.25cm,rotate around={180:(4.34*\i+2.17*\j,3.75*\j)}] ({4.34*\i+2.17*\j+\s*cos(90)},{3.75*\j+\s*sin(90)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\s*cos(330)},{3.75*\j+\s*sin(330)})--cycle;
+	\fill[xshift=2.165cm,yshift=1.25cm,lazuli!80!black,rotate around={180:(4.34*\i+2.17*\j,3.75*\j)}] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	\fill[xshift=2.165cm,yshift=1.25cm,lazuli!80!white,rotate around={300:(4.34*\i+2.17*\j,3.75*\j)}] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	\fill[xshift=2.165cm,yshift=1.25cm,lazuli!70!white,rotate around={60:(4.34*\i+2.17*\j,3.75*\j)}] (4.34*\i+2.17*\j+0,3.75*\j+0)--({4.34*\i+2.17*\j+\t*cos(180)},{3.75*\j+\t*sin(180)})--({4.34*\i+2.17*\j+\s*cos(210)},{3.75*\j+\s*sin(210)})--({4.34*\i+2.17*\j+\t*cos(240)},{3.75*\j+\t*sin(240)})--cycle;
+	
+	} %end i loop
+	} %end j loop
+	
+	%\draw[help lines] (0,0) grid (5,5);
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
