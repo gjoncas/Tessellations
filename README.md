@@ -132,6 +132,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![swirl](/pics/swirl.png)
+<br><b>Swirl</b>
+
+&nbsp;
+
 ![triangle-texture](/pics/triangle-texture.png)
 <br><b>Triangle texture</b>
 
