@@ -37,6 +37,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![domino](/pics/domino.png)
+<br><b>Dominos</b>
+
+&nbsp;
+
 ![fish](/pics/fish.png)
 <br><b>Fish</b> (inspired by Escher)
 
