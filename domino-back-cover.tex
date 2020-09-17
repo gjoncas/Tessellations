@@ -1,0 +1,43 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{pastelgreen}{rgb}{0.01, 0.75, 0.24}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},xshift=-0.35cm]
+	%\fill[white] (0,0) rectangle (\paperwidth,\paperheight);	%top of dominos
+	
+	\foreach \j in {0,...,18}{ % vertical
+	\foreach \i in {-1,...,15}{ %horizontal
+	
+	\fill[pastelgreen!40!white] (1.45*\i,1.53*\j)--++(0,-0.375)--++(-0.36,0.2)--++(0,0.375)--cycle;
+	\fill[pastelgreen!80!black] (1.45*\i,1.53*\j)--++(0,-0.375)--++(0.36,-0.19)--++(0,0.4)--++(0.36,0.2)--++(0.37,-0.21)--++(0,0.77)--cycle;
+	
+	\fill[pastelgreen!80!black] (1.45*\i+1.45,1.53*\j+0.765)--++(0,-0.375)--++(0.36,0.2)--++(0,0.375)--cycle;
+	\fill[pastelgreen!40!white] (1.45*\i+1.45,1.53*\j+0.765)--++(0,-0.375)--++(-0.36,-0.19)--++(0,0.4)--++(-0.36,0.2) --++(-0.37,-0.21)--++(0,0.77)--cycle;
+	
+	} %end i loop
+	} %end j loop
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
