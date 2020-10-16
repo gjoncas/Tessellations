@@ -1,0 +1,45 @@
+\documentclass[12pt]{report}
+
+\usepackage[top=1.25in,bottom=1in,left=2cm,right=2cm]{geometry}
+\usepackage{stix} 							%use the STIX font; also includes amssymb
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\definecolor{tealblue}{rgb}{0.21,0.46,0.53}
+\frenchspacing
+
+%SETTINGS FOR PARAGRAPHS
+\linespread{1.1}							%increase space between lines
+\setlength{\parindent}{0pt}					%no indents; default is 15pt
+\usepackage{parskip}						%space between paragraphs, rather than indents
+
+\begin{document}
+	
+	\begin{titlepage}\pagenumbering{Alph}\renewcommand{\thepage}{B}
+		\newgeometry{top=1.25in,bottom=1in,left=1.5cm,right=1.5cm}
+		
+	%GOING FROM BOTTOM
+	\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},ultra thick]
+	\fill[tealblue] (0,0) rectangle (\paperwidth,\paperheight);
+	
+	\foreach \j in {0,...,14}{ %horizontal
+	\foreach \i in {0,...,10}{ %vertical
+	
+	\node[regular polygon,regular polygon sides=8,draw=tealblue!80!black,scale=4.65,rotate=22.5] at (1+2*\i,1+2*\j) {};
+	\draw[tealblue!80!black] ({1+2*\i+1*cos(90)},{1+2*\j+1*sin(90)}) \foreach \r in {2,...,5}{--({1+2*\i+0.4*cos(\r*90-45)},{1+2*\j+0.4*sin(\r*90-45)})--({1+2*\i+0.975*cos(\r*90)},{1+2*\j+0.975*sin(\r*90)})};
+	\draw[tealblue!80!black] ({1+2*\i+0.39*cos(45)},{1+2*\j+0.39*sin(45)})-- ({1+2*\i+0.39*cos(135)},{1+2*\j+0.39*sin(135)})-- ({1+2*\i+0.39*cos(225)},{1+2*\j+0.39*sin(225)})-- ({1+2*\i+0.39*cos(315)},{1+2*\j+0.39*sin(315)})--cycle;
+	
+	\draw[tealblue!80!black] ({2*\i+0.4*cos(45)},{2*\j+0.4*sin(45)})-- ({2*\i+0.4*cos(135)},{2*\j+0.4*sin(135)})-- ({2*\i+0.4*cos(225)},{2*\j+0.4*sin(225)})-- ({2*\i+0.4*cos(315)},{2*\j+0.4*sin(315)})--cycle;
+	
+	} %end i loop
+	} %end j loop
+		
+	%\draw[help lines] (0,0) grid (5,5);
+	\end{tikzpicture}
+	
+	\end{titlepage}	
+	
+\end{document}
