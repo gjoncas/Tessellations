@@ -92,6 +92,11 @@ If I get ambitious, I'd like to explore aperiodic tiling, Voronoi diagrams, and 
 
 &nbsp;
 
+![octagon-diamonds](/pics/octagon.png)
+<br><b>Octagon diamonds</b>
+
+&nbsp;
+
 ![octagons](/pics/octagons.png)
 <br><b>Octagons</b> (simple, but beautiful)
 
